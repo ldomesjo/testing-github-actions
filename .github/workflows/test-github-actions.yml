@@ -11,6 +11,7 @@ jobs:
     steps:
       - run: echo meh
   third-job:
+    runs-on: ubuntu-latest
     needs:
       - first-job
       - second-job
