@@ -16,4 +16,5 @@ jobs:
       - first-job
       - second-job
     steps:
+      - run: echo '${{ toJSON(needs) }}'
       - run: echo ${{ contains(needs.*.result, 'success') }}
