@@ -1,0 +1,18 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo meh
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo meh
+  third-job:
+    needs:
+      - first-job
+      - second-job
+    steps:
+      - run: echo ${{ contains(needs.*.result, 'success') }}
